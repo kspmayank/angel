@@ -1,0 +1,17 @@
+<h1>Question:</h1>
+
+<% @q.each do |q|%>
+   	<%=q%><br>
+   	<%=q%><br>
+<% end%>
+
+<h2>Answer:</h2>
+<% @a.each do |a|%>
+   	<%=a%><br>
+<% end%>
+
+<h3>Your Comment:</h3>
+<%= form_for :comment do |f| %>
+  Comment : <%= f.text_field :comment %><br />
+  <%= f.submit %>
+<% end %>

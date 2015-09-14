@@ -1,0 +1,10 @@
+<h1>Question:</h1>
+
+<% @q.each do |q|%>
+   	<%=q%><br>
+<% end%>
+<h2>Your Answer:</h2>
+<%= form_for :answer do |f| %>
+  Answer : <%= f.text_field :answer %><br />
+  <%= f.submit %>
+<% end %>

@@ -1,0 +1,10 @@
+<h1>Show Question</h1>
+<%#@q%>
+<% @q.each do |q|%>
+   	<%=q%><br>
+   	<%=q%><br><br>
+   	<h2>Answer:</h2>
+   	<%@a.each do |a|%>
+   		<%=a%><br>
+   	<%end%>
+<% end%>

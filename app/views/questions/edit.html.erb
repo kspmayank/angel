@@ -1,0 +1,7 @@
+<% @q.each do |q|%>
+	<%= form_for q do |f| %>
+	  Heading : <%= f.text_field :heading, value: q.attributes["heading"] %><br />
+	  Description : <%= f.text_field :description, value: q.attributes["description"] %><br />
+		<%= f.submit %>
+	<% end%>
+<% end %>

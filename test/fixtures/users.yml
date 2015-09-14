@@ -1,0 +1,35 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  pid: MyString
+  dob: 2015-09-12 18:03:20
+  avatar_id: 
+  description: MyString
+  role: MyString
+  qualification: MyString
+  experience: 1
+  city: MyString
+  string: MyString
+  credits: 1
+  hospital: MyString
+  speciality: MyString
+  photoid: MyString
+  certificate: MyString
+
+two:
+  name: MyString
+  pid: MyString
+  dob: 2015-09-12 18:03:20
+  avatar_id: 
+  description: MyString
+  role: MyString
+  qualification: MyString
+  experience: 1
+  city: MyString
+  string: MyString
+  credits: 1
+  hospital: MyString
+  speciality: MyString
+  photoid: MyString
+  certificate: MyString

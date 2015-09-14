@@ -1,0 +1,111 @@
+<div class="container-fluid">
+    <div class="col-md-2">
+        Top Categories<br><br>
+        <ul>
+            <%@c.each do |c|%>
+                <li>
+                    <%=c.attributes["name"]%><br>
+                </li>
+            <%end%>
+        </ul>
+        <br><br>
+        Trending Now<br><br>
+        <ul>
+            <%@c.each do |c|%>
+                <li>
+                    <%=c.attributes["name"]%><br>
+                </li>
+            <%end%>
+        </ul>
+    </div>
+
+
+    <div class="col-md-7">
+        Recently Answered Questions<br><br>
+        <%@q.each do |q|%>
+            <div class="question">
+                <img src="/02.jpg" height="50" width="50" style="border-radius:100%; //display:inline;">
+                <span style="font-size:31px; margin:0.5em;"><%=q.heading%></span>
+                <div class="col-md-12" id="q-desc">
+                    <p style="//font-size:20px;"><%=q.description%></p>
+                </div>
+
+                <script type="text/javascript">
+                    function loadXMLDoc(qid)
+                    {
+                        var xmlhttp;
+                        if (window.XMLHttpRequest)
+                          {// code for IE7+, Firefox, Chrome, Opera, Safari
+                              xmlhttp = new XMLHttpRequest();
+                          }
+                          else
+                          {// code for IE6, IE5
+                              xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+                          }
+                          xmlhttp.onreadystatechange=function()
+                          {
+                              if (xmlhttp.readyState==4 && xmlhttp.status==200)
+                              {
+                                document.getElementById("p1").innerHTML=xmlhttp.responseText;
+                            }
+                        }
+                        xmlhttp.open("GET","/up/"+qid,true);
+                        xmlhttp.send();
+                    }
+
+                </script>
+                <span class="col-md-6">
+                <button><a href="/questions/<%=q.id%>/answers/new">Write Answer</a></button> <button>Follow</button>
+                </span>
+                <span class="col-md-6" style="float:right; text-align:right;">
+                    <span>pid:12345</span> <span>Age</span> Yrs Old <span>Male</span> <span id="dots">...</span>
+                    <span id="more" style="float:right;" hidden>
+                        <ul>
+                            <li>a</li>
+                            <li>b</li>
+                        </ul>
+                    </span>
+                </span>
+                <br>
+                <%@a = Answer.where(question_id: q.id)%>
+                <h2>Answers</h2>
+                <%@a.each do |a|%>
+                    <img src="/02.jpg" height="50" width="50" style="border-radius:100%;">
+                    <span><strong>Mayank Kashyap</strong></span>, <span>Doctor</span>
+                    <p id="ans"><%=a.answer.truncate(275)%><a  id="clickme" style="color:#2b6dad">Read More</a></p>
+                    <p id="hidden" style="display:none;"><%=a.answer%></p>
+                    <%#q.attributes["objectId"]%>
+                    <button onclick="loadXMLDoc('<%=q.id%>')">Upvote</button> <a href="">comments</a>
+                <%end%>
+            </div><br><hr><br>
+        <%end%>
+    </div>
+
+    <script type="text/javascript">
+    $(document).ready(function(){
+        $("#clickme").click(function() {
+           $("#hidden").show();
+           $("#ans").hide();
+       });
+    });
+    </script>
+    <script type="text/javascript">
+    $(document).ready(function(){
+        $("#dots").click(function() {
+           $("#more").show();
+           //$("#a").hide();
+       });
+    });
+    </script>
+
+    <div class="col-md-3">
+        Tips For The Day<br><br>
+        <ul>
+            <%@c.each do |c|%>
+                <li>
+                    <%=c.attributes["name"]%><br>
+                </li>
+            <%end%>
+        </ul>
+    </div>
+</div>

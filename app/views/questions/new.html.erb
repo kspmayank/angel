@@ -1,0 +1,7 @@
+<div class="container-fluid"><center>
+	<%= form_for :question do |f| %>
+	  <h3>Heading :</h3> <br> <%= f.text_field :heading , size: 50%><br /><br>
+	  <h3>Description :</h3> <br> <%= f.text_area :description, cols: 50, rows:10 %><br />
+	  <%= f.submit %>
+	<% end %></center>
+</div>
