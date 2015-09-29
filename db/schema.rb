@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150914054453) do
+ActiveRecord::Schema.define(version: 20150929085536) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -100,6 +100,19 @@ ActiveRecord::Schema.define(version: 20150914054453) do
 
   add_index "follow_questions", ["question_id"], name: "index_follow_questions_on_question_id", using: :btree
   add_index "follow_questions", ["user_id"], name: "index_follow_questions_on_user_id", using: :btree
+
+  create_table "images", force: :cascade do |t|
+    t.text     "image"
+    t.integer  "answer_id"
+    t.integer  "question_id"
+    t.integer  "user_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  add_index "images", ["answer_id"], name: "index_images_on_answer_id", using: :btree
+  add_index "images", ["question_id"], name: "index_images_on_question_id", using: :btree
+  add_index "images", ["user_id"], name: "index_images_on_user_id", using: :btree
 
   create_table "markspams", force: :cascade do |t|
     t.integer  "answer_id"
@@ -206,6 +219,9 @@ ActiveRecord::Schema.define(version: 20150914054453) do
   add_foreign_key "follow_doctors", "users"
   add_foreign_key "follow_questions", "questions"
   add_foreign_key "follow_questions", "users"
+  add_foreign_key "images", "answers"
+  add_foreign_key "images", "questions"
+  add_foreign_key "images", "users"
   add_foreign_key "markspams", "answers"
   add_foreign_key "markspams", "questions"
   add_foreign_key "markspams", "users"

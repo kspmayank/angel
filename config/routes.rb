@@ -24,9 +24,9 @@ Rails.application.routes.draw do
   #   get 'products/:id/purchase' => 'catalog#purchase', as: :purchase
 
       post 'questions/new' => 'questions#create'
-      post 'questions/:question_id/answers/new' => 'answers#create'
+      #post 'questions/:question_id/answers/new' => 'answers#create'
       post 'questions/:question_id/answers/:answer_id/comments/new' => 'comments#create'
-      
+      post 'questions/:question_id/answer/new' => 'answers#create'
       #get 'questions/new' => ''
       #get 'questions/:question_id' => 'questions#show'
       get '/login' => 'sessions#new'

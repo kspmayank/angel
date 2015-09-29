@@ -75,16 +75,18 @@
                     </span>
                 </span>
                 
-                <%= form_for :answer, url: 'answer/new', method: :post, html: { class: "answer_field_box col-md-12", id: "write_answer"+q.id.to_s, style: "visibility: hidden;" } do |f| %>
+                <%= form_for :answer, url: 'questions/'+q.id.to_s+'/answer/new', method: :post, html: { class: "answer_field_box col-md-12", id: "write_answer"+q.id.to_s, style: "visibility: hidden;" } do |f| %>
+                    <%= f.label "ab" %>
                     <span class="col-md-6">Answer : <%= f.text_field :answer %></span>
+                    File : <%= f.file_field :file , :multiple => true %>
                     <span class="col-md-6"><%= f.submit %></span>
-                <% end %>
+                <% end %><br>
                 <%@a = Answer.where(question_id: q.id)%>
                 <h2 class="col-md-6">Answers</h2>
                 <%@a.each do |a|%>
                     <span class="col-md-6" style="margin:">
                         <img src="/02.jpg" height="50" width="50" style="border-radius:100%;">
-                        <span><strong>Mayank Kashyap</strong></span>, <span>Doctor</span>
+                        <span><strong><%=a.user.name%></strong></span>, <span><%=a.user.qualification%></span>
                     </span>
                     <p class="col-md-12" id="ans"><%=a.answer.truncate(275)%><a  id="clickme" style="color:#2b6dad">Read More</a></p>
                     <p id="hidden" style="display:none;"><%=a.answer%></p>
