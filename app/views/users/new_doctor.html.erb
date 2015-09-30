@@ -1,6 +1,6 @@
-<h1>User Signup!</h1>
+<h1>Doctor Signup!</h1>
 
-<%= form_for :user, url: '/users' do |f| %>
+<%= form_for :user, url: '/doctors' do |f| %>
 
 	Name: <%= f.text_field :name %><br>
   	Email: <%= f.text_field :username %><br>
@@ -9,10 +9,14 @@
   	<!-- <h2>Personal Details</h2> -->
 
   	Date of Birth:  <%= f.date_select :dob, start_year: 1900 %><br>
-  	Any Specific Allergies: <%= f.text_field :description %><br>
+  	Any Specific Allergies: <%= f.text_area :description %><br>
   	City: <%= f.text_field :city %><br>
+    Hospital Working in: <%= f.text_field :hospital %><br>
+    Speciality: <%= f.text_field :speciality %><br>
 
-  
+    Photoid: <%= f.file_field :photoid %>
+    Certificate: <%= f.file_field :certificate %>
+    Profile Picture: <%# f.file_field :profile_pic , :multiple => true %>
   <%= f.submit "Submit" %>
 
 <% end %>
@@ -36,4 +40,6 @@
     t.datetime "created_at",    null: false
     t.datetime "updated_at",    null: false
     t.string   "username"
-    t.string   "password_hash" -->
+    t.string   "password_hash" 
+    gender
+    profile pic-->

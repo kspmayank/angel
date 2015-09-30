@@ -38,6 +38,11 @@ Rails.application.routes.draw do
 
       get '/upvote/:id' => 'questions#upvote'
 
+      get '/doctors/signup' => 'users#new_doctor'
+      post '/doctors' => 'users#create_doctor'
+
+      
+
   # Example resource route (maps HTTP verbs to controller actions automatically):
   #   resources :products
 
@@ -93,6 +98,7 @@ Rails.application.routes.draw do
   #   end
       namespace :api, defaults: {format: 'json'} do
         namespace :v1 do
+          resources :homes
           resources :questions do
             resources :answers do
               resources :comments

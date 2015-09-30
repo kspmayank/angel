@@ -86,7 +86,7 @@
                 <%@a.each do |a|%>
                     <span class="col-md-6" style="margin:">
                         <img src="/02.jpg" height="50" width="50" style="border-radius:100%;">
-                        <span><strong><%=a.user.name%></strong></span>, <span><%=a.user.qualification%></span>
+                        <span><strong><%#a.user.name%></strong></span>, <span><%#a.user.qualification%></span>
                     </span>
                     <p class="col-md-12" id="ans"><%=a.answer.truncate(275)%><a  id="clickme" style="color:#2b6dad">Read More</a></p>
                     <p id="hidden" style="display:none;"><%=a.answer%></p>
